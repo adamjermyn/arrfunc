@@ -46,6 +46,15 @@ k = ArrayFunc(lambda x: np.array([[x[0],x[1]],[x[0],x[1]]]), [2,2], 2)
 q = k[0:1]
 ```
 
+Evaluating an ArrayFunc returns an object with the output shape concatenated to all but the first part of the input shape.
+That is:
+```
+>>> f = ArrayFunc(lambda x: np.array([[x[0],x[1]],[x[0],x[1]]]), [2,2], 2)
+>>> x = np.random.randn((2,3,3))
+>>> f(x).shape
+(2, 2, 3, 3)
+```
+
 ## License
 
 This package is available under an MIT license.
